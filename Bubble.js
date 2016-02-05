@@ -1,5 +1,7 @@
 import React, {Text, View, Animated, Image, StyleSheet} from 'react-native';
 
+var ParsedText = require('react-native-parsed-text');
+
 let styles = StyleSheet.create({
   bubble: {
     borderRadius: 15,
@@ -46,6 +48,21 @@ export default class Bubble extends React.Component {
 
     if (this.props.renderCustomText) {
       return this.props.renderCustomText(text, position);
+    }
+
+    if (this.props.parseText === true && Platform.OS !== 'android') {
+      let parse = [
+        {type: 'url', style: [styles.link, (position === 'left' ? styles.linkLeft : styles.linkRight)], onPress: this.props.handleUrlPress},
+        {type: 'phone', style: [styles.link, (position === 'left' ? styles.linkLeft : styles.linkRight)], onPress: this.props.handlePhonePress},
+        {type: 'email', style: [styles.link, (position === 'left' ? styles.linkLeft : styles.linkRight)], onPress: this.props.handleEmailPress},
+      ];
+      return (
+        <ParsedText
+          style={[styles.text, (position === 'left' ? styles.textLeft : styles.textRight)]}
+          parse={parse}>
+          {text}
+        </ParsedText>
+      );
     }
     return (
       <Text style={[styles.text, (position === 'left' ? styles.textLeft : styles.textRight)]}>

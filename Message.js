@@ -46,7 +46,7 @@ export default class Message extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   componentWillMount() {
     Object.assign(styles, this.props.styles);
   }
@@ -155,7 +155,11 @@ export default class Message extends React.Component {
           status={rowData.status}
           text={rowData.text}
           renderCustomText={this.props.renderCustomText}
-          
+          parseText={this.props.parseText}
+          handleUrlPress={this.props.handleUrlPress}
+          handleEmailPress={this.props.handleEmailPress}
+          handlePhonePress={this.props.handlePhonePress}
+
           styles={styles}
           />
         {rowData.position === 'right' ? this.renderImage(rowData, rowID, diffMessage, forceRenderImage, onImagePress) : null}
