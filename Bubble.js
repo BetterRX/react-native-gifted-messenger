@@ -57,9 +57,7 @@ export default class Bubble extends React.Component {
         {type: 'email', style: [styles.link, (position === 'left' ? styles.linkLeft : styles.linkRight)], onPress: this.props.handleEmailPress},
       ];
       return (
-        <ParsedText
-          style={[styles.text, (position === 'left' ? styles.textLeft : styles.textRight)]}
-          parse={parse}>
+        <ParsedText>
           {text}
         </ParsedText>
       );
