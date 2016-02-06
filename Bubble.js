@@ -63,7 +63,7 @@ export default class Bubble extends React.Component {
             [
               {type: 'url',                       style: styles.url, onPress: this.props.handleUrlPress},
               {type: 'phone',                     style: styles.phone, onPress: this.props.handlePhonePress},
-              {type: 'email',                     style: styles.email, onPress: this..props.handleEmailPress},
+              {type: 'email',                     style: styles.email, onPress: this.props.handleEmailPress},
               {pattern: /42/,                     style: styles.magicNumber},
               {pattern: /#(\w+)/,                 style: styles.hashTag},
             ]
