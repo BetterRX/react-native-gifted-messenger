@@ -31,6 +31,42 @@ let styles = StyleSheet.create({
   bubbleError: {
     backgroundColor: '#e01717'
   },
+  url: {
+     color: 'red',
+     textDecorationLine: 'underline',
+   },
+
+   email: {
+     textDecorationLine: 'underline',
+   },
+
+   text: {
+     color: 'black',
+     fontSize: 15,
+   },
+
+   phone: {
+     color: 'blue',
+     textDecorationLine: 'underline',
+   },
+
+   name: {
+     color: 'red',
+   },
+
+   username: {
+     color: 'green',
+     fontWeight: 'bold'
+   },
+
+   magicNumber: {
+     fontSize: 42,
+     color: 'pink',
+   },
+
+   hashTag: {
+     fontStyle: 'italic',
+   },
 
 });
 
