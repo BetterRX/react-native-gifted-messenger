@@ -159,6 +159,7 @@ export default class Message extends React.Component {
           handleUrlPress={this.props.handleUrlPress}
           handleEmailPress={this.props.handleEmailPress}
           handlePhonePress={this.props.handlePhonePress}
+          handleHashPress={this.props.handleHashPress}
 
           styles={styles}
           />

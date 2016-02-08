@@ -192,6 +192,7 @@ var GiftedMessenger = React.createClass({
           handleUrlPress={this.props.handleUrlPress}
           handleEmailPress={this.props.handleEmailPress}
           handlePhonePress={this.props.handlePhonePress}
+          handleHashPress={this.props.handleHashPress}
         />
       </View>
     )
