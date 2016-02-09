@@ -66,6 +66,8 @@ let styles = StyleSheet.create({
 
    hashTag: {
      fontStyle: 'italic',
+     textDecorationLine: 'underline',
+     color: 'blue',
    },
 
 });
