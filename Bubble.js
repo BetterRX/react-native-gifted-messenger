@@ -98,10 +98,11 @@ export default class Bubble extends React.Component {
               {type: 'phone',                     style: styles.phone, onPress: this.props.handlePhonePress},
               {type: 'email',                     style: styles.email, onPress: this.props.handleEmailPress},
               {pattern: /#(\w+)/,                 style: styles.hashTag, onPress: this.props.handleHashPress},
+              {pattern: /share robinhealth/i,     style: styles.hashTag, onPress: this.props.handleHashPress},
             ]
           }
         >
-          {text && text.replace(/#share/i, 'share')}
+          {text}
         </ParsedText>      );
     }
     return (
