@@ -101,12 +101,12 @@ export default class Bubble extends React.Component {
             ]
           }
         >
-          {text}
+          {text && text.replace(/#share/i, 'share')}
         </ParsedText>      );
     }
     return (
       <Text style={[styles.text, (position === 'left' ? styles.textLeft : styles.textRight)]}>
-        {text && text.replace(/#share/i, 'share')}
+        {text}
       </Text>
     );
   }
