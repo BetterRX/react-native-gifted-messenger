@@ -105,7 +105,6 @@ var GiftedMessenger = React.createClass({
       disabled: true,
       height: new Animated.Value(this.listViewMaxHeight),
       isLoadingEarlierMessages: false,
-      allLoaded: false,
       appearAnim: new Animated.Value(0),
     };
   },
@@ -222,10 +221,6 @@ var GiftedMessenger = React.createClass({
       this.appendMessages(this.props.messages);
     } else if (this.props.initialMessages.length > 0) {
       this.appendMessages(this.props.initialMessages);
-    } else {
-      this.setState({
-        allLoaded: true
-      });
     }
 
   },
@@ -285,16 +280,11 @@ var GiftedMessenger = React.createClass({
     }
   },
 
-  postLoadEarlierMessages(messages = [], allLoaded = false) {
+  postLoadEarlierMessages(messages = []) {
     this.prependMessages(messages);
     this.setState({
       isLoadingEarlierMessages: false
     });
-    if (allLoaded === true) {
-      this.setState({
-        allLoaded: true,
-      });
-    }
   },
 
   preLoadEarlierMessages() {
@@ -306,25 +296,23 @@ var GiftedMessenger = React.createClass({
 
   renderLoadEarlierMessages() {
     if (this.props.loadEarlierMessagesButton === true) {
-      if (this.state.allLoaded === false) {
-        if (this.state.isLoadingEarlierMessages === true) {
-          return (
-            <View style={this.styles.loadEarlierMessages}>
-              <GiftedSpinner />
-            </View>
-          );
-        } else {
-          return (
-            <View style={this.styles.loadEarlierMessages}>
-              <Button
-                style={this.styles.loadEarlierMessagesButton}
-                onPress={() => {this.preLoadEarlierMessages()}}
-              >
-                {this.props.loadEarlierMessagesButtonText}
-              </Button>
-            </View>
-          );
-        }
+      if (this.state.isLoadingEarlierMessages === true) {
+        return (
+          <View style={this.styles.loadEarlierMessages}>
+            <GiftedSpinner />
+          </View>
+        );
+      } else {
+        return (
+          <View style={this.styles.loadEarlierMessages}>
+            <Button
+              style={this.styles.loadEarlierMessagesButton}
+              onPress={() => {this.preLoadEarlierMessages()}}
+            >
+              {this.props.loadEarlierMessagesButtonText}
+            </Button>
+          </View>
+        );
       }
     }
     return null;
